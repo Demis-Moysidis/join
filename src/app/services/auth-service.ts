@@ -8,7 +8,7 @@ import {
   updateProfile
 } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 /**
  * Service for handling user authentication using Firebase Auth.
@@ -31,9 +31,6 @@ export class AuthService {
   /** Angular Router for navigation after login/signup/logout */
   router = inject(Router);
 
-  /** BehaviorSubject tracking login status */
-  logStatus = new BehaviorSubject<boolean>(false);
-
   /**
    * Sign up a new user with email, password, and display name
    * @param email User email
@@ -53,13 +50,11 @@ export class AuthService {
         password
       );
 
+      this.router.navigate(['/summary']);
+
       if (userCredential.user) {
         await updateProfile(userCredential.user, { displayName });
-        console.log('Display name set:', displayName);
       }
-
-      this.router.navigate(['/summary']);
-      this.logStatus.next(true);
 
       return { success: true };
     } catch (error: any) {
@@ -127,7 +122,6 @@ export class AuthService {
     try {
       await signInWithEmailAndPassword(this.auth, email, password);
       this.router.navigate(['/summary']);
-      this.logStatus.next(true);
       return false;
     } catch (error) {
       return true;
@@ -145,7 +139,6 @@ export class AuthService {
   async logout() {
     await signOut(this.auth);
     this.router.navigate(['/login']);
-    console.log("Logout");
   }
 
   /**

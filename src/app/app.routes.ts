@@ -21,5 +21,6 @@ export const routes: Routes = [
     { path: 'tasks', component: Tasks, canActivate: [authFunctionalGuard] },
     { path: 'board', component: Board, canActivate: [authFunctionalGuard] },
     { path: 'login', component: Login, canActivate: [reverseAuthFunctionalGuardGuard] },
-    { path: 'sign-up', component: SignUp, canActivate: [reverseAuthFunctionalGuardGuard] }
+    { path: 'sign-up', component: SignUp, canActivate: [reverseAuthFunctionalGuardGuard] },
+    { path: '**', redirectTo: '/login' }
 ];

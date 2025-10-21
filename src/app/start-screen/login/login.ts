@@ -51,7 +51,7 @@ export class Login {
    * Sets local storage flags for guest mode and welcome message.
    */
   guestLogIn() {
-    this.authService.login('sofia.müller@gmail.com', 'sofiamu');
+    this.authService.login('sophie.maier@example.com', 'sophiema');
     localStorage.setItem('guestLogin', 'true');
     localStorage.removeItem('hasSeenWelcome');
   }

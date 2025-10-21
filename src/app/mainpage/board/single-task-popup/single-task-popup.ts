@@ -118,7 +118,6 @@ export class SingleTaskPopup implements OnInit {
   onEditTask() {
     if (this.taskId) {
       this.edit.emit(this.taskId);
-      console.log("editing ID:", this.taskId);
       this.close.emit();
     }
   }

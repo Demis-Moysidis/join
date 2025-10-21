@@ -64,7 +64,6 @@ export class Board {
   openTaskPopup(taskId: string) {
     this.editMode = false;
     this.selectedTaskId = taskId;
-    console.log("opening ID", this.selectedTaskId);
   }
 
   /** Closes the task popup */
