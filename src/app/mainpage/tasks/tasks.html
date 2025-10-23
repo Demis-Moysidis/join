@@ -1,4 +1,4 @@
-<section class="content_wrapper" [class.responsive]="isResponsive">
+<section class="content_wrapper" [class.responsive]="isResponsive" [ngClass]="{'content_wrapper_add': addMode}">
     <div class="tasks_wrapper">
         <header>
             @if (editMode) {
@@ -20,7 +20,7 @@
                     <div>
                         <label for="title">Title</label>
                         <input type="text" id="title" name="title" [(ngModel)]="targetTask.title" #titleInput="ngModel"
-                            placeholder="Title" minlength="2" required />
+                            placeholder="Enter a title" minlength="2" required />
                     </div>
                     <div class="error">
                         @if (titleInput.invalid && (titleInput.dirty || titleInput.touched || taskForm.submitted)) {
@@ -38,7 +38,7 @@
                     <div>
                         <label for="title">Title <span>*</span></label>
                         <input type="text" id="title" name="title" [(ngModel)]="targetTask.title" #titleInput="ngModel"
-                            placeholder="Title" minlength="2" required />
+                            placeholder="Enter a title" minlength="2" required />
                     </div>
                     <div class="error">
                         @if (titleInput.invalid && (titleInput.dirty || titleInput.touched || taskForm.submitted)) {
@@ -56,7 +56,7 @@
                     <div>
                         <label for="description">Description</label>
                         <textarea id="description" name="description" [(ngModel)]="targetTask.description"
-                            placeholder="Description"></textarea>
+                            placeholder="Enter a description"></textarea>
                     </div>
                     <div class="error"></div>
                     <div>
@@ -173,7 +173,7 @@
                         <label for="subtask">Subtasks</label>
                         <div class="subtask_input_wrapper">
                             <input type="text" id="subtask" [(ngModel)]="subtaskTitle" name="subtaskTitle"
-                                placeholder="Subtask title" />
+                                placeholder="Add new subtask" />
 
                             @if (subtaskTitle.length >= 1) {
                             <div class="subtask_button_wrapper">
@@ -231,7 +231,7 @@
                     </div>
                 </div>
             </main>
-            <footer>
+            <footer [ngClass]="{'add-from-board': addMode}">
                 @if (editMode) {
                 <div>
                     <p></p>
@@ -241,10 +241,10 @@
                             src="/assets/icons/check.svg"></button>
                 </div>
                 } @else {
-                <div>
+                <div class="required-hint">
                     <p><span>*</span>This field is required</p>
                 </div>
-                <div>
+                <div class="add-task-btn">
                     <button type="button" class="clear" (click)="clearInputFields(taskForm)">Clear<img
                             src="/assets/icons/close.svg"></button>
                     <button class="add_task" type="submit">Add Task<img
