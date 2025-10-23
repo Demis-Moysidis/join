@@ -6,7 +6,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { TaskInterface } from '../../interfaces/tasks.interface';
 import { Timestamp } from '@angular/fire/firestore';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 /**
  * Component for adding, editing, and managing tasks.
@@ -20,7 +20,7 @@ import { Router, RouterLink } from '@angular/router';
  */
 @Component({
   selector: 'app-tasks',
-  imports: [CommonModule, FormsModule, NgSelectModule, RouterLink],
+  imports: [CommonModule, FormsModule, NgSelectModule],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss'
 })
