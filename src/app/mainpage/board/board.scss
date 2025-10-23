@@ -13,7 +13,7 @@
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.514);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -28,6 +28,7 @@
         border-radius: 30px;
         width: 90vw;
         height: 90vh;
+        overflow-x: auto;
     }
 
     >.edit_mode {

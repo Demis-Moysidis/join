@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, inject, Input, Output } from '@angular/core';
 import { TaskService } from '../../services/task-service';
 import { ContactService } from '../../services/contact-service';
 import { CommonModule } from '@angular/common';
@@ -7,6 +7,7 @@ import { OverviewTasks } from './overview-tasks/overview-tasks';
 import { SearchbarHeader } from './searchbar-header/searchbar-header';
 import { SingleTaskPopup } from './single-task-popup/single-task-popup';
 import { Tasks } from '../tasks/tasks';
+import { Router } from '@angular/router';
 
 /**
  * Main board component displaying tasks in stages, search, and task popups.
@@ -20,6 +21,8 @@ import { Tasks } from '../tasks/tasks';
   styleUrl: './board.scss'
 })
 export class Board {
+
+  router = inject(Router);
 
   /** Currently selected task ID for popup */
   selectedTaskId: string | null = null;
@@ -126,5 +129,14 @@ export class Board {
   closeAdd() {
     this.addMode = false;
     this.editingTaskId = null;
+  }
+
+  /** Closes add mode on mobile at media query */
+  @HostListener('window:resize')
+  onResize() {
+    if(this.addMode && window.innerWidth < 1080){
+      this.addMode = false;
+      this.router.navigate(['/tasks']);
+    }
   }
 }
