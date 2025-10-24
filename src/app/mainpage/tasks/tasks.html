@@ -229,6 +229,9 @@
                             }
                         </div>
                     </div>
+                    <div class="required-hint-responsive" [ngClass]="{'d_none': editMode}">
+                        <p><span>*</span>This field is required</p>
+                    </div>
                 </div>
             </main>
             <footer [ngClass]="{'add-from-board': addMode, 'add-from-board-edit': editMode}">
