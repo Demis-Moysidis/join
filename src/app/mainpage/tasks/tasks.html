@@ -1,4 +1,4 @@
-<section class="content_wrapper" [class.responsive]="isResponsive" [ngClass]="{'content_wrapper_add': addMode}">
+<section class="content_wrapper" [class.responsive]="isResponsive" [ngClass]="{'content_wrapper_add': addMode, 'content_wrapper_edit': editMode}">
     <div class="tasks_wrapper">
         <header>
             @if (editMode) {
@@ -231,14 +231,13 @@
                     </div>
                 </div>
             </main>
-            <footer [ngClass]="{'add-from-board': addMode}">
+            <footer [ngClass]="{'add-from-board': addMode, 'add-from-board-edit': editMode}">
                 @if (editMode) {
                 <div>
-                    <p></p>
-                </div>
-                <div>
-                    <button class="add_task" type="submit">Edit Task<img
-                            src="/assets/icons/check.svg"></button>
+                    <button class="add_task" type="submit">
+                        Edit Task
+                        <img src="/assets/icons/check.svg">
+                    </button>
                 </div>
                 } @else {
                 <div class="required-hint">
