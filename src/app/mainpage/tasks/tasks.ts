@@ -53,6 +53,9 @@ export class Tasks {
   /** Flag for responsive layout */
   isResponsive = false;
 
+  /** Task was added successfully */
+  showTaskAddedMessage = false;
+
   /** Task being edited */
   edit: TaskInterface | undefined;
 
@@ -233,19 +236,16 @@ export class Tasks {
 
     if (this.editMode && this.edit) {
       this.taskService.updateTask(this.edit.id!, this.edit);
+      this.close.emit();
     } else {
       this.taskService.addTask(this.newTask);
       this.addToStage.emit(this.newTask.stage);
       this.clearInputFields(form);
-      this.router.navigate(['/board']);
-    }
-
-    this.close.emit();
-
-    if (this.addMode) {
-      this.router.navigate(['/board']).then(() => {
-        this.clearInputFields(form);
-      });
+      this.showTaskAddedMessage = true;
+      setTimeout(()=>{
+        this.router.navigate(['/board']);
+        this.close.emit();
+      }, 2000);
     }
   }
 
