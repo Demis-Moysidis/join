@@ -12,6 +12,10 @@ section {
     position: relative;
 }
 
+select {
+    font-family: 'Inter';
+}
+
 textarea {
     resize: vertical;    
     max-height: 300px;
