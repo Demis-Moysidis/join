@@ -45,7 +45,7 @@
 
             <!-- Error messages -->
 
-            @if (currentError) {
+            @if (currentError && form.submitted) {
             <p class="error-message">{{ currentError }}</p>
             }
         </div>
