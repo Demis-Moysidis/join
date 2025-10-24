@@ -26,7 +26,7 @@
                         @if (titleInput.invalid && (titleInput.dirty || titleInput.touched || taskForm.submitted)) {
                         <span>
                             @if (titleInput.errors?.['required']) {
-                            Enter Name
+                            Please enter a title
                             } @else if (titleInput.errors?.['minlength']) {
                             min 2 characters
                             }
@@ -44,7 +44,7 @@
                         @if (titleInput.invalid && (titleInput.dirty || titleInput.touched || taskForm.submitted)) {
                         <span>
                             @if (titleInput.errors?.['required']) {
-                            Enter Name
+                            Please enter a title
                             } @else if (titleInput.errors?.['minlength']) {
                             min 2 characters
                             }
@@ -68,7 +68,7 @@
                         @if (dateInput.invalid) {
                         <span>
                             @if (dateInput.errors?.['required']) {
-                            enter a date
+                            Please enter a date
                             }
                         </span>
                         }
@@ -144,7 +144,7 @@
                         taskForm.submitted))
                         {
                         <span>
-                            {{ categoryInput.errors?.['required'] ? 'Select valid Task' : '' }}
+                            {{ categoryInput.errors?.['required'] ? 'Please select a category' : '' }}
                         </span>
                         }
                     </div>
@@ -163,7 +163,7 @@
                         taskForm.submitted))
                         {
                         <span>
-                            {{ categoryInput.errors?.['required'] ? 'Select valid Task' : '' }}
+                            {{ categoryInput.errors?.['required'] ? 'Please select a category' : '' }}
                         </span>
                         }
                     </div>
