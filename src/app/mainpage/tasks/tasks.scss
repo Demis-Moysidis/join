@@ -18,6 +18,10 @@ textarea {
     min-height: 100px; 
 }
 
+.input-focus-border:focus, .ng_select:focus-within {
+    border: 2px solid #29ABE2 !important;
+}
+
 header {
     @include PositionBox($jc: space-between);
 
@@ -374,8 +378,9 @@ footer {
         margin-top: 10px;
 
         .ng-select-container {
-            height: 48px;
+            height: 45px;
             padding: 0 10px;
+            padding-bottom: 5px;
             align-items: center;
             cursor: pointer;
 
