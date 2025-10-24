@@ -25,7 +25,7 @@
                     <div class="error">
                         @if (titleInput.invalid && (titleInput.dirty || titleInput.touched || taskForm.submitted)) {
                         <span>
-                            @if (titleInput.errors?.['required']) {
+                            @if (titleInput.errors?.['required'] && taskForm.submitted) {
                             Please enter a title
                             } @else if (titleInput.errors?.['minlength']) {
                             min 2 characters
@@ -43,7 +43,7 @@
                     <div class="error">
                         @if (titleInput.invalid && (titleInput.dirty || titleInput.touched || taskForm.submitted)) {
                         <span>
-                            @if (titleInput.errors?.['required']) {
+                            @if (titleInput.errors?.['required'] && taskForm.submitted) {
                             Please enter a title
                             } @else if (titleInput.errors?.['minlength']) {
                             min 2 characters
@@ -67,7 +67,7 @@
                     <div class="error">
                         @if (dateInput.invalid) {
                         <span>
-                            @if (dateInput.errors?.['required']) {
+                            @if (dateInput.errors?.['required'] && taskForm.submitted) {
                             Please enter a date
                             }
                         </span>
@@ -141,7 +141,7 @@
                     </div>
                     <div class="error">
                         @if (categoryInput.invalid && (categoryInput.dirty || categoryInput.touched ||
-                        taskForm.submitted))
+                        taskForm.submitted) && taskForm.submitted)
                         {
                         <span>
                             {{ categoryInput.errors?.['required'] ? 'Please select a category' : '' }}
@@ -160,7 +160,7 @@
                     </div>
                     <div class="error">
                         @if (categoryInput.invalid && (categoryInput.dirty || categoryInput.touched ||
-                        taskForm.submitted))
+                        taskForm.submitted) && taskForm.submitted)
                         {
                         <span>
                             {{ categoryInput.errors?.['required'] ? 'Please select a category' : '' }}
