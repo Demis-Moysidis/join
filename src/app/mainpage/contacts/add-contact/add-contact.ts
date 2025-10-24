@@ -59,7 +59,7 @@ export class AddContact {
       this.htmlinput = {
         name: this.contact.name,
         email: this.contact.email,
-        phone: this.contact.phone
+        phone: this.contact.phone!
       };
     } else {
       this.clearInputFields();

@@ -9,6 +9,7 @@ import {
 } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { ContactService } from './contact-service';
 
 /**
  * Service for handling user authentication using Firebase Auth.
@@ -24,6 +25,9 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+
+  /** Contact service instance */
+  contactService = inject(ContactService);
 
   /** Firebase Auth instance */
   auth = inject(Auth);
@@ -49,6 +53,11 @@ export class AuthService {
         email,
         password
       );
+
+      this.contactService.addContact({
+        name: displayName,
+        email: email
+      });
 
       this.router.navigate(['/summary']);
 
