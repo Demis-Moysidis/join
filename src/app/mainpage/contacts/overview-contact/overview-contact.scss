@@ -114,7 +114,7 @@ footer {
 
     header {
         @include PositionBox();
-        @include BoxSize($w: 100%, $h: 8%);
+        @include BoxSize($w: 100%, $h: 100px);
 
         >a {
             @include BoxSize($w: clamp(18.125rem, -5.833rem + 33.333vw, 27.5rem), $h: 60px);
@@ -142,6 +142,7 @@ footer {
 @media (max-width: 500px) {
     section {
         @include BoxSize($w: 100%, $h: calc(100dvh - 200px));
+        padding: 0px 8px;
     }
 
     main {

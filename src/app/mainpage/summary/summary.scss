@@ -3,7 +3,7 @@ section.container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 25px 50px;
+    padding: 25px 40px;
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -331,7 +331,7 @@ section.container {
             .num_status {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 justify-content: center;
                 gap: 5px;
                 color: #2A3647;
@@ -580,4 +580,11 @@ section.container {
         font-size: 4rem;
         font-weight: 700;
     }
+}
+
+@media (max-width: 1080px) {
+    section {
+        height: calc(100dvh - 200px); 
+    }
+    
 }
