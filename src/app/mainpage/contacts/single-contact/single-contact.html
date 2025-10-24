@@ -54,9 +54,7 @@
 
 
         <div class="menu-details" (click)="toggleMenu(); $event.stopPropagation()">
-            <button class="menu-button">
-                <img src="./assets/icons/more_vert.svg" alt="Menu" />
-            </button>
+            <img src="./assets/icons/more_vert.svg" alt="Menu" />
         </div>
 
         <div class="popup-menu" *ngIf="isMenuOpen || isClosing" [ngClass]="{ 'popup-menu-closing': isClosing }"
