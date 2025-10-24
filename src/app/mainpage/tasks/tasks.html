@@ -27,8 +27,8 @@
                         <span>
                             @if (titleInput.errors?.['required'] && taskForm.submitted) {
                             Please enter a title
-                            } @else if (titleInput.errors?.['minlength']) {
-                            min 2 characters
+                            } @else if (titleInput.errors?.['minlength'] && taskForm.submitted) {
+                            Please enter min 2 characters
                             }
                         </span>
                         }
@@ -45,8 +45,8 @@
                         <span>
                             @if (titleInput.errors?.['required'] && taskForm.submitted) {
                             Please enter a title
-                            } @else if (titleInput.errors?.['minlength']) {
-                            min 2 characters
+                            } @else if (titleInput.errors?.['minlength'] && taskForm.submitted) {
+                            Please enter min 2 characters
                             }
                         </span>
                         }
